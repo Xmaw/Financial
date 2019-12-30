@@ -4,3 +4,5 @@ Categories are hard-coded. This should be changed to something more dynamic.
   - Regex?
   - let the user choose to what Category each newly found company belong.
 --------------------------------------------------------------------------------
+Add functionality to keep track of "other_expenses"
+--------------------------------------------------------------------------------
