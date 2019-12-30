@@ -2,90 +2,100 @@
 import xlrd
 import matplotlib.pyplot as plt
 
-# Give the location of the file
-path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\october.xls'
 
-# To open Workbook
-wb = xlrd.open_workbook(path)
-sheet = wb.sheet_by_index(0)
+def write_graph(components):
+    # Pie-chart of two separate charts.
+    fig1, ax1 = plt.subplots()
 
-# For row 0 and column 0
-print(sheet.cell_value(0, 0))
-amount = 0.0
+    # Chart 1: Represent the different categories with how much money was spent on them.
+    labels = 'Food', 'Bills', 'Pleasure', 'Clothes', 'Others'
+    explode = (0, 0, 0, 0, 0.1)  # only "explode" the 2nd slice
+    ax1.pie(components, explode=explode, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.show()
 
-# Different categories
-food = [
-    'de fyra arstiderna',
-    'ica',
-    'EUREST',
-    'vallastaden rest',
-    '7 eleven'
-    'city gross'
-]
 
-bills = ['telia', 'bredband2', 'spotify', 'heimstaden']
-pleasure = ['blizzard']
-clothes = ['mq', 'dressman', 'gant']
+class FinancialGraphic:
+    expenses_list = []
+    food_expenses = 0
+    bills_expenses = 0
+    pleasure_expenses = 0
+    clothes_expenses = 0
+    other_expenses = 0
+    path = ""
 
-expenses_list = []
-food_expenses = 0
-bills_expenses = 0
-pleasure_expenses = 0
-clothes_expenses = 0
-other_expenses = 0
+    # Different categories
+    food = ['de fyra arstiderna', 'ica', 'eurest', 'vallastaden rest', '7 eleven', 'city gross']
+    bills = ['telia', 'bredband2', 'spotify', 'heimstaden']
+    pleasure = ['blizzard']
+    clothes = ['mq', 'dressman', 'gant']
 
-# Add all the expenses to a list to make it easier to handle them.
-expenses_list.append(food_expenses)
-expenses_list.append(bills_expenses)
-expenses_list.append(pleasure_expenses)
-expenses_list.append(clothes_expenses)
-expenses_list.append(other_expenses)
+    def __init__(self, path_to_file):
+        # Give the location of the file
+        self.other_list = []
+        self.path_to_file = path_to_file
+        expenses_list = []
+        self.food_expenses = 0
+        self.bills_expenses = 0
+        self.pleasure_expenses = 0
+        self.clothes_expenses = 0
+        self.other_expenses = 0
 
-other_list = []
+        # Add all the expenses to a list to make it easier to handle them.
+        expenses_list.append(self.food_expenses)
+        expenses_list.append(self.bills_expenses)
+        expenses_list.append(self.pleasure_expenses)
+        expenses_list.append(self.clothes_expenses)
+        expenses_list.append(self.other_expenses)
 
-# Populate the categories
-for row in range(sheet.nrows):
-    try:
-        transaction_info = sheet.cell_value(row, 1).lower()
-        amount = sheet.cell_value(row, 3)
-        amount = amount.replace('.', '')
-        amount = amount.replace(',', '.')
-        amount = float(amount)
+        # To open Workbook
+        wb = xlrd.open_workbook(path_to_file)
+        sheet = wb.sheet_by_index(0)
+        self.populate_categories(sheet)
 
-        for category in food:
-            if category in transaction_info:
-                food_expenses += amount
+        print("Food: {0}\nBills: {1}\nPleasure: {2}\nClothes: {3}\nOther: {4}".format(self.food_expenses,
+                                                                                      self.bills_expenses,
+                                                                                      self.pleasure_expenses,
+                                                                                      self.clothes_expenses,
+                                                                                      self.other_expenses))
+        write_graph(
+            [abs(self.food_expenses), abs(self.bills_expenses), abs(self.pleasure_expenses), abs(self.clothes_expenses),
+             abs(self.other_expenses)])
 
-        for category in bills:
-            if category in transaction_info:
-                bills_expenses += amount
+    def populate_categories(self, sheet):
+        for row in range(sheet.nrows):
+            try:
+                transaction_info = sheet.cell_value(row, 1).lower()
+                amount = sheet.cell_value(row, 3)
+                amount = amount.replace('.', '')
+                amount = amount.replace(',', '.')
+                amount = float(amount)
 
-        for category in pleasure:
-            if category in transaction_info:
-                pleasure_expenses += amount
+                for category in self.food:
+                    if category in transaction_info:
+                        self.food_expenses += amount
 
-        for category in clothes:
-            if category in transaction_info:
-                clothes_expenses += amount
+                for category in self.bills:
+                    if category in transaction_info:
+                        self.bills_expenses += amount
 
-        else:
-            other_expenses += amount
-            other_list.append(transaction_info)
+                for category in self.pleasure:
+                    if category in transaction_info:
+                        self.pleasure_expenses += amount
 
-    except ValueError as e:
-        print(e)
+                for category in self.clothes:
+                    if category in transaction_info:
+                        self.clothes_expenses += amount
 
-print("Food: {0}\nBills: {1}\nPleasure: {2}\nClothes: {3}\nOther: {4}".format(food_expenses, bills_expenses,
-                                                                              pleasure_expenses, clothes_expenses,
-                                                                              other_expenses))
+                else:
+                    self.other_expenses += amount
+                    self.other_list.append(transaction_info)
 
-# Pie chart, where the slices will be ordered and plotted counter-clockwise:
-labels = 'Food', 'Bills', 'Pleasure', 'Clothes', 'Others'
-sizes = [abs(food_expenses), abs(bills_expenses), abs(pleasure_expenses), abs(clothes_expenses), abs(other_expenses)]
-# explode = (0, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+            except ValueError as e:
+                print(e)
 
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-plt.show()
+
+if __name__ == '__main__':
+    path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\october.xls'
+    FinancialGraphic(path)
