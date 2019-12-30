@@ -1,5 +1,6 @@
 # Reading an excel file using Python
 import xlrd
+import matplotlib.pyplot as plt
 
 # Give the location of the file
 path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\october.xls'
@@ -77,3 +78,14 @@ for row in range(sheet.nrows):
 print("Food: {0}\nBills: {1}\nPleasure: {2}\nClothes: {3}\nOther: {4}".format(food_expenses, bills_expenses,
                                                                               pleasure_expenses, clothes_expenses,
                                                                               other_expenses))
+
+# Pie chart, where the slices will be ordered and plotted counter-clockwise:
+labels = 'Food', 'Bills', 'Pleasure', 'Clothes', 'Others'
+sizes = [abs(food_expenses), abs(bills_expenses), abs(pleasure_expenses), abs(clothes_expenses), abs(other_expenses)]
+# explode = (0, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
