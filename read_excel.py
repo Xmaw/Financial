@@ -143,5 +143,5 @@ class FinancialGraphic:
 
 
 if __name__ == '__main__':
-    path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\december19.xls'
+    path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\october19.xls'
     FinancialGraphic(path)

@@ -6,3 +6,6 @@ Categories are hard-coded. This should be changed to something more dynamic.
 --------------------------------------------------------------------------------
 Add functionality to keep track of "other_expenses"
 --------------------------------------------------------------------------------
+Add GUI functionality to choose what month you wish to look at?
+  - Or add an console menue to choose from?
+--------------------------------------------------------------------------------
