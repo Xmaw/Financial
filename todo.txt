@@ -1,0 +1,6 @@
+Stuff to do.
+--------------------------------------------------------------------------------
+Categories are hard-coded. This should be changed to something more dynamic.
+  - Regex?
+  - let the user choose to what Category each newly found company belong.
+--------------------------------------------------------------------------------
