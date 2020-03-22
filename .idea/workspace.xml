@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/transaction_history/get_history.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Financial_Graphic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Financial_Graphic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_excel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/plot_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots/plot_expenses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transaction_history/get_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/transaction_history/get_history.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,26 +14,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/read_excel.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plots/plot_expenses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="419">
+              <caret line="157" column="68" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
               <folding>
-                <element signature="e#37#48#0" expanded="true" />
+                <element signature="e#65#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../hax/venv/Lib/site-packages/xlrd/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
+              <folding>
+                <element signature="e#152#161#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/ntpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="290" selection-start-line="290" selection-end-line="290" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transaction_history/get_history.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="17" column="59" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="59" />
               <folding>
                 <element signature="e#286#297#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todo.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -53,6 +81,7 @@
     <findStrings>
       <find>FAWK</find>
       <find>food</find>
+      <find>path</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,7 +92,9 @@
       <list>
         <option value="$PROJECT_DIR$/Graph.py" />
         <option value="$PROJECT_DIR$/read_excel.py" />
+        <option value="$PROJECT_DIR$/plots/read_excel.py" />
         <option value="$PROJECT_DIR$/transaction_history/get_history.py" />
+        <option value="$PROJECT_DIR$/plots/plot_expenses.py" />
       </list>
     </option>
   </component>
@@ -81,7 +112,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,12 +122,18 @@
             <path>
               <item name="Financial" type="b2602c69:ProjectViewProjectNode" />
               <item name="Financial" type="462c0819:PsiDirectoryNode" />
+              <item name="plots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Financial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Financial" type="462c0819:PsiDirectoryNode" />
               <item name="transaction_history" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -105,11 +141,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Johan\PycharmProjects\Financial_Graphic\excel_files" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Johan\PycharmProjects\Financial_Graphic" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Users\Elias\PycharmProjects\Financial\plots" />
+      <recent name="C:\Users\Johan\PycharmProjects\Financial_Graphic\excel_files" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -124,7 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.read_excel">
+  <component name="RunManager" selected="Python.plot_expenses">
     <configuration name="Graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Financial_Graphic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,6 +175,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Graph.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_history" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Financial_Graphic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/transaction_history" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transaction_history/get_history.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot_expenses" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Financial_Graphic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plots" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plots/plot_expenses.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,6 +248,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.plot_expenses" />
+        <item itemvalue="Python.get_history" />
         <item itemvalue="Python.read_excel" />
         <item itemvalue="Python.Graph" />
       </list>
@@ -206,7 +287,25 @@
       <option name="project" value="LOCAL" />
       <updated>1577727124493</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Created new directory: transaction_history.&#10;Added a script: get_history.py">
+      <created>1584904857420</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1584904857420</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Added another directory: plots&#10;Moved the plot script: read_excel.py to the new directory.">
+      <created>1584904960676</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1584904960676</updated>
+    </task>
+    <task id="LOCAL−00006" summary="Renamed the plotting script: read_excel.py to plot_expenses.py">
+      <created>1584905006538</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1584905006538</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -214,15 +313,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24920969" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24920969" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.3285968" />
       <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -255,7 +354,10 @@
     <MESSAGE value="Graph added using mathplotlib.pyplot" />
     <MESSAGE value="Added functionality to read an excel file and populate expenses in form of: food, bills, pleasure, clothes and others." />
     <MESSAGE value="Moved the writing functionality to the read_excel file and removed the class Graph.&#10;Plots a graph containing the amount of money spent on each of the categories." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved the writing functionality to the read_excel file and removed the class Graph.&#10;Plots a graph containing the amount of money spent on each of the categories." />
+    <MESSAGE value="Created new directory: transaction_history.&#10;Added a script: get_history.py" />
+    <MESSAGE value="Added another directory: plots&#10;Moved the plot script: read_excel.py to the new directory." />
+    <MESSAGE value="Renamed the plotting script: read_excel.py to plot_expenses.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed the plotting script: read_excel.py to plot_expenses.py" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/plotly/express/__init__.py" />
@@ -264,22 +366,46 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/xlrd/__init__.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/axes/_axes.py" />
     <entry file="file://$PROJECT_DIR$/Graph.py" />
-    <entry file="file://$PROJECT_DIR$/read_excel.py">
+    <entry file="file://$PROJECT_DIR$/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#37#48#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transaction_history/get_history.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="289">
+          <caret line="17" column="59" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="59" />
           <folding>
             <element signature="e#286#297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="290" selection-start-line="290" selection-end-line="290" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../hax/venv/Lib/site-packages/xlrd/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#152#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plots/plot_expenses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="157" column="68" selection-start-line="157" selection-start-column="68" selection-end-line="157" selection-end-column="68" />
+          <folding>
+            <element signature="e#65#76#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,8 +1,10 @@
-# Reading an excel file using Python
+"""
+ Plots the expenses...
+ TO-DO: ADD MORE INFORMATION HERE
+"""
 
 import xlrd
 import matplotlib.pyplot as plt
-
 
 class FinancialGraphic:
     path = ""
@@ -36,9 +38,9 @@ class FinancialGraphic:
     income = ['lön', 'lån']
     payback_loans = ['centrala studie']
 
-    def __init__(self, path_to_file):
+    def __init__(self, path):
         # To open Workbook
-        wb = xlrd.open_workbook(path_to_file)
+        wb = xlrd.open_workbook(path)
         sheet = wb.sheet_by_index(0)
 
         # Populate the categories given the data in the excel file.
@@ -49,6 +51,7 @@ class FinancialGraphic:
              self.other_expenses, self.payback_loans_amount])
 
     def populate_categories(self, sheet):
+        print("Populating...")
         for row in range(sheet.nrows):
             try:
                 transaction_info = sheet.cell_value(row, 1).lower()
@@ -112,6 +115,8 @@ class FinancialGraphic:
         self.clothes_expenses = float("{0:.2f}".format(abs(self.clothes_expenses)))
         self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
 
+        print("Done populating!")
+
     def draw_graph(self, components):
         # Pie-chart of two separate charts.
         fig1, plot = plt.subplots()
@@ -144,5 +149,6 @@ class FinancialGraphic:
 
 
 if __name__ == '__main__':
-    path = 'C:\\Users\\Johan\\PycharmProjects\\Financial_Graphic\\excel_files\\october19.xls'
-    FinancialGraphic(path)
+    path = 'E:/Users/Elias/PycharmProjects/nordea/personkonto/export (2).xls'
+    FC = FinancialGraphic(path)
+    # FC.plot()

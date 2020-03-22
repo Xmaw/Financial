@@ -15,7 +15,7 @@ from os.path import isfile, join
 
 
 def get_history(name):
-    dir_path = "E:/Users/Elias/PycharmProjects/nordea"
+    dir_path = "E:/Users/Elias/PycharmProjects/nordea/swish"
     files = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
     print(files)
     return_list = []
