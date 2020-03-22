@@ -1,11 +1,12 @@
 Stuff to do.
---------------------------------------------------------------------------------
-Categories are hard-coded. This should be changed to something more dynamic.
-  - Regex?
-  - let the user choose to what Category each newly found company belong.
---------------------------------------------------------------------------------
-Add functionality to keep track of "other_expenses"
---------------------------------------------------------------------------------
-Add GUI functionality to choose what month you wish to look at?
-  - Or add an console menue to choose from?
---------------------------------------------------------------------------------
+        Categories are hard-coded. This should be changed to something more dynamic.
+          - Regex?
+          - let the user choose to what Category each newly found company belong.
+
+        Add functionality to keep track of "other_expenses"
+
+        Add GUI functionality to choose what month you wish to look at?
+          - Or add an console menu to choose from?
+
+        Add drop-down menu in the GUI to choose other months from the history folder.
+
