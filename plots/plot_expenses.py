@@ -6,6 +6,7 @@
 import xlrd
 import matplotlib.pyplot as plt
 
+
 class FinancialGraphic:
     path = ""
     expenses_list = []
