@@ -6,3 +6,9 @@ TODO:
         - Add GUI functionality to choose what month you wish to look at.
             - Drop down menu at the top containing each month.
         - Add drop-down menu in the GUI to choose other months from the history folder.
+        - Add income amount and display total +/- earnings of the month.
+        - Keep the different categories in a separate text file to reduce the clutter in the code.
+        - Make the plot interactive.
+            - If you click on a category a list should appear with each transaction within that category.
+        - If a category is 0 it should not appear on the plot.
+        - Refactor the code. Extract code that are similar in order to reduce clutter.
