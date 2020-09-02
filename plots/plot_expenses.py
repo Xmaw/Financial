@@ -149,5 +149,5 @@ class FinancialGraphic:
 
 
 if __name__ == '__main__':
-    path = 'E:/Users/Elias/PycharmProjects/nordea/personkonto/export (2).xls'
+    path = 'E:/Users/Elias/PycharmProjects/banking/'
     FC = FinancialGraphic(path)
