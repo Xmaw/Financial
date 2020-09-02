@@ -15,7 +15,7 @@ from os.path import isfile, join
 
 
 def get_history(name):
-    dir_path = "E:/Users/Elias/PycharmProjects/nordea/swish"
+    dir_path = "E:/Users/Elias/PycharmProjects/banking"
     files = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
     print(files)
     return_list = []
@@ -27,7 +27,6 @@ def get_history(name):
             cell = str(sheet.cell(i, 1)).lower()
             if name in cell:
                 return_list.append(sheet.cell(i, 3))
-
     return return_list
 
 
