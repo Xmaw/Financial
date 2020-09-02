@@ -124,7 +124,7 @@ class FinancialGraphic:
 
         # Chart 1: Represent the different categories with how much money was spent on them.
         labels = 'Food', 'Bills', 'Pleasure', 'Clothes', 'Others', 'Payback Loans'
-        explode = (0.1, 0, 0, 0, 0, 0)  # only "explode" the 2nd slice
+        explode = (0.1, 0, 0, 0, 0, 0)  # only "explode" the 1st slice
 
         # White ring for the middle of the doughnut
         middle_circle = plt.Circle((0, 0), 0.7, color='white')
@@ -136,7 +136,6 @@ class FinancialGraphic:
         p.gca().add_artist(middle_circle)
 
         # List of elements to the side of the chart. (Legends)
-        # plot.legend(bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)
 
         # Explanatory text to complement the text.
         plot.text(1.5, 0, 'Food: {0} SEK'.format(self.food_expenses))
@@ -152,4 +151,3 @@ class FinancialGraphic:
 if __name__ == '__main__':
     path = 'E:/Users/Elias/PycharmProjects/nordea/personkonto/export (2).xls'
     FC = FinancialGraphic(path)
-    # FC.plot()
