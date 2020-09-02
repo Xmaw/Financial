@@ -3,5 +3,6 @@ TODO:
             - Regex?
             - let the user choose to what Category each newly found company belong.
         - Add functionality to keep track of "other_expenses"
-        - Add GUI functionality to choose what month you wish to look at?
+        - Add GUI functionality to choose what month you wish to look at.
+            - Drop down menu at the top containing each month.
         - Add drop-down menu in the GUI to choose other months from the history folder.
