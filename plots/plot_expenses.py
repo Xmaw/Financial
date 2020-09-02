@@ -1,6 +1,6 @@
 """
  Plots the expenses...
- TO-DO: ADD MORE INFORMATION HERE
+ TO-DO: ADD SOME INFORMATION
 """
 
 import xlrd
