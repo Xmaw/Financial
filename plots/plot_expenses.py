@@ -2,11 +2,10 @@
  Plots the expenses...
  TO-DO: ADD SOME INFORMATION
 """
-from os.path import isfile
+import os.path
 
 import xlrd
 import matplotlib.pyplot as plt
-import os
 
 
 class FinancialGraphic:
@@ -172,11 +171,15 @@ class FinancialGraphic:
         plot.text(2.0, 0.5, 'Other: {0} SEK'.format(self.other_expenses))
         plot.text(2.0, -0.2, 'Total expenses: {0} SEK'.format(self.total_expenses))
 
-        # plt.show()
+        plt.show()
 
 
 if __name__ == '__main__':
-    path = 'E:/Users/Elias/PycharmProjects/banking/202006.xlsx'
-    path = 'C:/Users/Johan/Banking/202011.'
-    print(isfile(path))
-    FC = FinancialGraphic(path)
+    path = 'C:\\Users\\Johan\\PycharmProjects\\banking'
+    files = os.listdir(path)
+    banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
+
+    some_file = banking_files[-1]
+    path_to_some_file = os.path.join(path, some_file)
+    FinancialGraphic(path_to_some_file)
+
