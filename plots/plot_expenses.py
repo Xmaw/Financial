@@ -177,5 +177,6 @@ class FinancialGraphic:
 
 if __name__ == '__main__':
     path = 'E:/Users/Elias/PycharmProjects/banking/202006.xlsx'
+    path = 'C:/Users/Johan/Banking/202011.'
     print(isfile(path))
     FC = FinancialGraphic(path)
