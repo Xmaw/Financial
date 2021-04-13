@@ -60,6 +60,13 @@ class FinancialGraphic:
 
     def __init__(self, path):
         # To open Workbook
+        file_path, file_extension = os.path.splitext(path)
+        if '.csv' in file_extension:
+            pass
+
+        elif '.xlsx' in file_extension:
+            pass
+
         wb = xlrd.open_workbook(path)
         sheet = wb.sheet_by_index(0)
 
