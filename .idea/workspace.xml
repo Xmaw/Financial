@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/plot_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots/plot_expenses.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +298,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618323336333</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added support for .cvs formatted files.">
+      <created>1618327278465</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1618327278465</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated TODO">
+      <created>1618327372830</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1618327372830</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -389,18 +402,19 @@
     <MESSAGE value="Small refactor of the code." />
     <MESSAGE value="Refactored the code to remove a PEP-8 warning" />
     <MESSAGE value="Moved the banking information to another repo and version controlled it. &#10;Updated this script to use the new path." />
-    <MESSAGE value="Updated TODO" />
     <MESSAGE value="Changed the way the banking files are parsed." />
     <MESSAGE value="Added a TODO-file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a TODO-file." />
+    <MESSAGE value="Added support for .cvs formatted files." />
+    <MESSAGE value="Updated TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated TODO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/plots/plot_expenses.py</url>
-          <line>189</line>
-          <option name="timeStamp" value="3" />
+          <line>117</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

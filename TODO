@@ -1,4 +1,4 @@
 TODO:
-        - combine the methods populate_categories to reduce the amount of code needed.
 DONE:
+        - combine the methods populate_categories to reduce the amount of code needed.
         - Support .csv format files.

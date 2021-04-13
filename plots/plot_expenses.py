@@ -63,73 +63,62 @@ class FinancialGraphic:
         file_path, file_extension = os.path.splitext(path)
         if '.csv' in file_extension:
             self.populate_categories_csv_format(path)
-
         elif '.xlsx' in file_extension:
             self.populate_categories_xmlx_format(path)
 
-        self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses, self.other_expenses, self.payback_loans_amount, self.home_expenses])
+        self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
+                         self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
-    def populate_categories(self, sheet):
+    def populate_categories(self, amount, info):
         print("Populating...")
-        for row in range(sheet.nrows):
-            try:
-                print(sheet.cell_value(row, 5))
-                transaction_info = sheet.cell_value(row, 5).lower()
-                amount = sheet.cell_value(row, 1)
-                if isinstance(amount, str):
-                    continue
-                amount = float(amount)
-                amount = abs(amount)
-                print("amount found: {0}".format(amount))
+        print("amount found: {0}".format(amount))
 
-                category_found = False
-                for category in self.food:
-                    if category in transaction_info:
-                        self.food_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
+        category_found = False
+        for category in self.food:
+            if category in info:
+                self.food_expenses += amount
+                self.total_expenses += amount
+                category_found = True
 
-                for category in self.bills:
-                    if category in transaction_info:
-                        self.bills_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
+        for category in self.bills:
+            if category in info:
+                self.bills_expenses += amount
+                self.total_expenses += amount
+                category_found = True
 
-                for category in self.pleasure:
-                    if category in transaction_info:
-                        self.pleasure_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
+        for category in self.pleasure:
+            if category in info:
+                self.pleasure_expenses += amount
+                self.total_expenses += amount
+                category_found = True
 
-                for category in self.clothes:
-                    if category in transaction_info:
-                        self.clothes_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
+        for category in self.clothes:
+            if category in info:
+                self.clothes_expenses += amount
+                self.total_expenses += amount
+                category_found = True
 
-                for category in self.income:
-                    if category in transaction_info:
-                        self.income_amount += amount
-                        category_found = True
+        for category in self.income:
+            if category in info:
+                self.income_amount += amount
+                category_found = True
 
-                for category in self.payback_loans:
-                    if category in transaction_info:
-                        self.payback_loans_amount += amount
-                        category_found = True
+        for category in self.payback_loans:
+            if category in info:
+                self.payback_loans_amount += amount
+                category_found = True
 
-                for category in self.home:
-                    if category in transaction_info:
-                        self.home_expenses += amount
-                        category_found = True
+        for category in self.home:
+            if category in info:
+                self.home_expenses += amount
+                category_found = True
 
-                if not category_found:
-                    if 'överföring' not in transaction_info:
-                        self.other_expenses += amount
-                        self.total_expenses += amount
-                        self.other_list.append({transaction_info: amount})
+        if not category_found:
+            if 'överföring' not in info:
+                self.other_expenses += amount
+                self.total_expenses += amount
+                self.other_list.append({info: amount})
 
-            except ValueError as e:
-                print(e)
         print("Others: {0}".format(self.other_list))
 
         # Round the values of the expenses to two decimals
@@ -177,7 +166,18 @@ class FinancialGraphic:
         sheet = wb.sheet_by_index(0)
 
         # Populate the categories given the data in the excel file.
-        self.populate_categories(sheet)
+        for row in range(sheet.nrows):
+            try:
+                print(sheet.cell_value(row, 5))
+                info = sheet.cell_value(row, 5).lower()
+                amount = sheet.cell_value(row, 1)
+                if isinstance(amount, str):
+                    continue
+                amount = float(amount)
+                amount = abs(amount)
+                self.populate_categories(amount, info)
+            except ValueError as e:
+                pass
 
     def populate_categories_csv_format(self, path):
         with open(path, 'r', encoding='utf-8') as file:
@@ -192,70 +192,7 @@ class FinancialGraphic:
                     print('Unable to convert "{0}" to a float.'.format(amount))
                 else:
                     amount = abs(amount)
-                if isinstance(amount, str):
-                    continue
-                print("amount found: {0}".format(amount))
-
-                category_found = False
-                for category in self.food:
-                    if category in info:
-                        self.food_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
-
-                for category in self.bills:
-                    if category in info:
-                        self.bills_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
-
-                for category in self.pleasure:
-                    if category in info:
-                        self.pleasure_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
-
-                for category in self.clothes:
-                    if category in info:
-                        self.clothes_expenses += amount
-                        self.total_expenses += amount
-                        category_found = True
-
-                for category in self.income:
-                    if category in info:
-                        self.income_amount += amount
-                        category_found = True
-
-                for category in self.payback_loans:
-                    if category in info:
-                        self.payback_loans_amount += amount
-                        category_found = True
-
-                for category in self.home:
-                    if category in info:
-                        self.home_expenses += amount
-                        category_found = True
-
-                if not category_found:
-                    if 'överföring' not in info:
-                        self.other_expenses += amount
-                        self.total_expenses += amount
-                        self.other_list.append({info: amount})
-
-                print("Others: {0}".format(self.other_list))
-                # Round the values of the expenses to two decimals
-                self.total_expenses = float("{0:.2f}".format(abs(self.total_expenses)))
-                self.bills_expenses = float("{0:.2f}".format(abs(self.bills_expenses)))
-                self.pleasure_expenses = float("{0:.2f}".format(abs(self.pleasure_expenses)))
-                self.food_expenses = float("{0:.2f}".format(abs(self.food_expenses)))
-                self.other_expenses = float("{0:.2f}".format(abs(self.other_expenses)))
-                self.clothes_expenses = float("{0:.2f}".format(abs(self.clothes_expenses)))
-                self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
-                self.home_expenses = float("{0:.2f}".format(abs(self.home_expenses)))
-
-                print('total:', self.total_expenses)
-
-                print("Done populating!")
+                    self.populate_categories(amount, info)
 
 
 if __name__ == '__main__':
