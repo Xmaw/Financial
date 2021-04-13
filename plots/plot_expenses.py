@@ -76,9 +76,6 @@ class FinancialGraphic:
                          self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
     def populate_categories(self, amount, info):
-        print("Populating...")
-        print("amount found: {0}".format(amount))
-
         category_found = False
         for category in self.food:
             if category in info:
@@ -137,8 +134,6 @@ class FinancialGraphic:
         self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
         self.home_expenses = float("{0:.2f}".format(abs(self.home_expenses)))
 
-        print("Done populating!")
-
     def draw_graph(self, components):
         # Pie-chart of two separate charts.
         fig1, plot = plt.subplots()
@@ -156,7 +151,6 @@ class FinancialGraphic:
         p = plt.gcf()
         p.gca().add_artist(middle_circle)
 
-        # Explanatory text to complement the text.
         plot.text(2.0, 0, 'Food: {0} SEK'.format(self.food_expenses))
         plot.text(2.0, 0.1, 'Bills: {0} SEK'.format(self.bills_expenses))
         plot.text(2.0, 0.2, 'Pleasure: {0} SEK'.format(self.pleasure_expenses))
