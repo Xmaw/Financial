@@ -47,7 +47,13 @@ class FinancialGraphic:
             'kharma',
             'piri piri',
             'maestro',
-            'ellas kok']
+            'ellas kok',
+            'delivery hero sweden',
+            'sukaldari',
+            'storan restaurang',
+            'brodernas',
+            'bobbys pizzahus',
+            ]
 
     bills = ['telia', 'bredband2', 'spotify', 'heimstaden', 'tekniska ver', 'åhman', 'alfa kassan', 'hyresgästför',
              'autogiro lf']
