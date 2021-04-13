@@ -1,4 +1,12 @@
 TODO:
+        - Add a functionality to swap between months from the plot GUI.
+            - <Previous Month>, <Next Month>?
+            - A drop down menu for each month?
+            - Select months from a table of months?
+        - Add a feature to compare information between different months.
+            - Plot a curve for each category over X-months
+                - it should be possible to select individual categories.
+                - it should be possible to choose the amount of months to be displayed.
 DONE:
         - combine the methods populate_categories to reduce the amount of code needed.
         - Support .csv format files.
