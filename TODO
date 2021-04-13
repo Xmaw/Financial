@@ -1,2 +1,4 @@
 TODO:
-    - Support .csv format files.
+        - combine the methods populate_categories to reduce the amount of code needed.
+DONE:
+        - Support .csv format files.
