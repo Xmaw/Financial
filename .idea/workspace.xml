@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/plot_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots/plot_expenses.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618259728474</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added a TODO-file.">
+      <created>1618323336333</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1618323336333</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -384,7 +391,19 @@
     <MESSAGE value="Moved the banking information to another repo and version controlled it. &#10;Updated this script to use the new path." />
     <MESSAGE value="Updated TODO" />
     <MESSAGE value="Changed the way the banking files are parsed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the way the banking files are parsed." />
+    <MESSAGE value="Added a TODO-file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a TODO-file." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plots/plot_expenses.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/plotly/express/__init__.py" />
