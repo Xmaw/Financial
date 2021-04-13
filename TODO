@@ -7,6 +7,8 @@ TODO:
             - Plot a curve for each category over X-months
                 - it should be possible to select individual categories.
                 - it should be possible to choose the amount of months to be displayed.
+        - Look into Dash Plotly to handle the visual representation of the information. It looks solid.
+            - interactive data visualization with python. (HTML)
 DONE:
         - combine the methods populate_categories to reduce the amount of code needed.
         - Support .csv format files.
