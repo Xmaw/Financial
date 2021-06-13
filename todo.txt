@@ -12,3 +12,9 @@ TODO:
             - If you click on a category a list should appear with each transaction within that category.
         - If a category is 0 it should not appear on the plot.
         - Refactor the code. Extract code that are similar in order to reduce clutter.
+
+        New Feature idea:
+        - Display the output in a staple graph.
+        - New feature: Import the budget for each month
+            - display the budget for each category into a staple graph
+            - See the budgeted output in the same graph to see if I exceed the targeted output.
