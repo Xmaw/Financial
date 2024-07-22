@@ -3,7 +3,6 @@
  TO-DO: ADD SOME INFORMATION
 """
 import os.path
-
 import xlrd
 import matplotlib.pyplot as plt
 
@@ -53,16 +52,23 @@ class FinancialGraphic:
             'storan restaurang',
             'brodernas',
             'bobbys pizzahus',
+            'tempo vimmerby storg',
+            'restaurang monte car',
+            'sibylla',
+            'foodora ab',
+            'bakfickan',
+            'go banana vimmerby'
             ]
 
     bills = ['telia', 'bredband2', 'spotify', 'heimstaden', 'tekniska ver', 'åhman', 'alfa kassan', 'hyresgästför',
-             'autogiro lf']
+             'autogiro lf', 'betalning pg 4962303-6 vimmerby ene', 'vimarhem akt', 'hallon', 'länsförsäk']
     pleasure = ['blizzard', 'netflix', 'hbo', 'frisor', 'agatan bar', 'gymbolaget', 'steamgames', 'systembolaget',
-                'inet', 'hultins sportfiske']
+                'inet', 'hultins sportfiske', 'raidbots','svedea ab', 'handelsboden linkopi']
     clothes = ['mq', 'dressman', 'gant']
-    home = ['clas ohlson']
+    home = ['clas ohlson', 'oob vimmerby', 'st1 vimmerby', 'albins jarn', 'circle k']
     income = ['lön', 'lån']
-    payback_loans = ['centrala studie', 'centrala stu']
+    payback_loans = ['centrala studie', 'centrala stu', 'open banking bg 5196-5770 resurs ba', 'resurs bank']
+    car = ['st1 vimmerby']
 
     def __init__(self, path):
         # To open Workbook
@@ -196,10 +202,11 @@ class FinancialGraphic:
 
 
 if __name__ == '__main__':
-    path = 'C:\\Users\\Johan\\PycharmProjects\\banking'
+    path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
+    print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
 
-    some_file = banking_files[-1]
+    some_file = banking_files[-2]
     path_to_some_file = os.path.join(path, some_file)
     FinancialGraphic(path_to_some_file)
