@@ -145,8 +145,6 @@ class FinancialGraphic:
         self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
         self.home_expenses = float("{0:.2f}".format(abs(self.home_expenses)))
 
-        return {'bills_expenses': self.bills_expenses}
-
     def draw_graph(self, components):
         # Pie-chart of two separate charts.
         fig1, plot = plt.subplots()
@@ -206,17 +204,6 @@ class FinancialGraphic:
                 else:
                     amount = abs(amount)
                     self.populate_categories(amount, info)
-
-
-class Color(QWidget):
-
-    def __init__(self, color):
-        super(Color, self).__init__()
-        self.setAutoFillBackground(True)
-
-        palette = self.palette()
-        palette.setColor(QPalette.Window, QColor(color))
-        self.setPalette(palette)
 
 
 class MainWindow(QMainWindow):
