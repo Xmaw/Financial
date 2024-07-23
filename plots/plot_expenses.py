@@ -3,8 +3,13 @@
  TO-DO: ADD SOME INFORMATION
 """
 import os.path
+import sys
+
 import xlrd
 import matplotlib.pyplot as plt
+import PyQt5
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QHBoxLayout, QVBoxLayout, QLabel
+from PyQt5.QtGui import QPalette, QColor
 
 
 class FinancialGraphic:
@@ -63,7 +68,7 @@ class FinancialGraphic:
     bills = ['telia', 'bredband2', 'spotify', 'heimstaden', 'tekniska ver', 'åhman', 'alfa kassan', 'hyresgästför',
              'autogiro lf', 'betalning pg 4962303-6 vimmerby ene', 'vimarhem akt', 'hallon', 'länsförsäk']
     pleasure = ['blizzard', 'netflix', 'hbo', 'frisor', 'agatan bar', 'gymbolaget', 'steamgames', 'systembolaget',
-                'inet', 'hultins sportfiske', 'raidbots','svedea ab', 'handelsboden linkopi']
+                'inet', 'hultins sportfiske', 'raidbots', 'svedea ab', 'handelsboden linkopi']
     clothes = ['mq', 'dressman', 'gant']
     home = ['clas ohlson', 'oob vimmerby', 'st1 vimmerby', 'albins jarn', 'circle k']
     income = ['lön', 'lån']
@@ -78,8 +83,8 @@ class FinancialGraphic:
         elif '.xlsx' in file_extension:
             self.populate_categories_xmlx_format(path)
 
-        self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
-                         self.other_expenses, self.payback_loans_amount, self.home_expenses])
+        # self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
+        #                 self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
     def populate_categories(self, amount, info):
         category_found = False
@@ -139,6 +144,8 @@ class FinancialGraphic:
         self.clothes_expenses = float("{0:.2f}".format(abs(self.clothes_expenses)))
         self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
         self.home_expenses = float("{0:.2f}".format(abs(self.home_expenses)))
+
+        return {'bills_expenses': self.bills_expenses}
 
     def draw_graph(self, components):
         # Pie-chart of two separate charts.
@@ -201,6 +208,44 @@ class FinancialGraphic:
                     self.populate_categories(amount, info)
 
 
+class Color(QWidget):
+
+    def __init__(self, color):
+        super(Color, self).__init__()
+        self.setAutoFillBackground(True)
+
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor(color))
+        self.setPalette(palette)
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Expenses App")
+
+        main_box = QHBoxLayout()
+        expenses = QVBoxLayout()
+        income = QVBoxLayout()
+        remaining = QVBoxLayout()
+
+        expenses.addWidget(QLabel("List fixed expenses here:"))
+        expenses.addWidget(QLabel("List variable expenses here:"))
+        main_box.addLayout(expenses)
+
+        income.addWidget(QLabel("Add income here"))
+        main_box.addLayout(income)
+
+        remaining.addWidget(QLabel("List remaining money here"))
+        main_box.addLayout(remaining)
+
+        widget = QWidget()
+        widget.setLayout(main_box)
+        self.setCentralWidget(widget)
+
+        self.setMinimumSize(500, 500)
+
+
 if __name__ == '__main__':
     path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
@@ -209,4 +254,10 @@ if __name__ == '__main__':
 
     some_file = banking_files[-2]
     path_to_some_file = os.path.join(path, some_file)
-    FinancialGraphic(path_to_some_file)
+    # FinancialGraphic(path_to_some_file)
+
+    app = QApplication(sys.argv)
+
+    window = MainWindow()
+    window.show()
+    app.exec()
