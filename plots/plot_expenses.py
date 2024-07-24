@@ -86,6 +86,11 @@ class FinancialGraphic:
         # self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
         #                 self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
+    def get_expenses(self):
+        return {'food': self.food_expenses, 'bills': self.bills_expenses, 'pleasure': self.pleasure_expenses,
+                'clothes': self.clothes_expenses, 'other': self.other_expenses,
+                'payback_loans': self.payback_loans_amount, 'home': self.home_expenses}
+
     def populate_categories(self, amount, info):
         category_found = False
         for category in self.food:
@@ -216,7 +221,12 @@ class MainWindow(QMainWindow):
         income = QVBoxLayout()
         remaining = QVBoxLayout()
 
+        expenses_amount = financial.get_expenses()
+
         expenses.addWidget(QLabel("List fixed expenses here:"))
+        for a in expenses_amount:
+            expenses.addWidget(QLabel(f'{a}: {expenses_amount.get(a)}'))
+
         expenses.addWidget(QLabel("List variable expenses here:"))
         main_box.addLayout(expenses)
 
@@ -241,7 +251,7 @@ if __name__ == '__main__':
 
     some_file = banking_files[-2]
     path_to_some_file = os.path.join(path, some_file)
-    # FinancialGraphic(path_to_some_file)
+    financial = FinancialGraphic(path_to_some_file)
 
     app = QApplication(sys.argv)
 
