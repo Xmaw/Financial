@@ -26,6 +26,7 @@ class FinancialGraphic:
     total_expenses = 0
     payback_loans_amount = 0
     home_expenses = 0
+    total_income = 0
 
     # Income
     income_amount = 0
@@ -91,6 +92,9 @@ class FinancialGraphic:
                 'clothes': self.clothes_expenses, 'other': self.other_expenses,
                 'payback_loans': self.payback_loans_amount, 'home': self.home_expenses}
 
+    def get_income(self):
+        return {'income': self.income_amount}
+
     def populate_categories(self, amount, info):
         category_found = False
         for category in self.food:
@@ -120,16 +124,19 @@ class FinancialGraphic:
         for category in self.income:
             if category in info:
                 self.income_amount += amount
+                self.total_income += amount
                 category_found = True
 
         for category in self.payback_loans:
             if category in info:
                 self.payback_loans_amount += amount
+                self.total_expenses += amount
                 category_found = True
 
         for category in self.home:
             if category in info:
                 self.home_expenses += amount
+                self.total_expenses += amount
                 category_found = True
 
         if not category_found:
@@ -217,24 +224,33 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Expenses App")
 
         main_box = QHBoxLayout()
-        expenses = QVBoxLayout()
-        income = QVBoxLayout()
-        remaining = QVBoxLayout()
+        expenses_layout = QVBoxLayout()
+        income_layout = QVBoxLayout()
+        remaining_money_layout = QVBoxLayout()
 
         expenses_amount = financial.get_expenses()
 
-        expenses.addWidget(QLabel("List fixed expenses here:"))
-        for a in expenses_amount:
-            expenses.addWidget(QLabel(f'{a}: {expenses_amount.get(a)}'))
+        expenses_layout.addWidget(QLabel("List fixed expenses here:"))
 
-        expenses.addWidget(QLabel("List variable expenses here:"))
-        main_box.addLayout(expenses)
+        for e in expenses_amount:
+            expenses_layout.addWidget(QLabel(f'{e}: {expenses_amount.get(e)}'))
+        expenses_layout.addWidget(QLabel(f'Total: {financial.total_expenses}'))
 
-        income.addWidget(QLabel("Add income here"))
-        main_box.addLayout(income)
+        expenses_layout.addWidget(QLabel("List variable expenses here:"))
+        main_box.addLayout(expenses_layout)
 
-        remaining.addWidget(QLabel("List remaining money here"))
-        main_box.addLayout(remaining)
+        income_layout.addWidget(QLabel("Add income here"))
+        income_amount = financial.get_income()
+        for i in income_amount:
+            income_layout.addWidget(QLabel(f'{i}: {income_amount}'))
+
+        main_box.addLayout(income_layout)
+
+        remaining_money_layout.addWidget(QLabel("List remaining money here"))
+        remaining_money = financial.total_income - financial.total_expenses
+        remaining_money_layout.addWidget(QLabel(f'remaning money: {remaining_money}'))
+
+        main_box.addLayout(remaining_money_layout)
 
         widget = QWidget()
         widget.setLayout(main_box)
