@@ -225,17 +225,37 @@ class FinancialGraphic:
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setup_main_window()
-
-    def setup_main_window(self):
         self.setWindowTitle("Expenses App")
-
-        # Create a number of layouts to section the main window into smaller pieces
         main_box = QHBoxLayout()
         expenses_layout = QVBoxLayout()
         income_layout = QVBoxLayout()
         remaining_money_layout = QVBoxLayout()
 
+
+        self.configure_expenses_layout(expenses_layout, main_box)
+        self.configure_income_layout(income_layout, main_box)
+        self.configure_remaning_money_layout(main_box, remaining_money_layout)
+
+        widget = QWidget()
+        widget.setLayout(main_box)
+        self.setCentralWidget(widget)
+
+        self.setMinimumSize(500, 500)
+
+    def configure_remaning_money_layout(self, main_box, remaining_money_layout):
+        remaining_money_layout.addWidget(QLabel("List remaining money here"))
+        remaining_money = financial.total_income - financial.total_expenses
+        remaining_money_layout.addWidget(QLabel(f'remaning money: {remaining_money}'))
+        main_box.addLayout(remaining_money_layout)
+
+    def configure_income_layout(self, income_layout, main_box):
+        income_layout.addWidget(QLabel("Add income here"))
+        income_amount = financial.get_income()
+        for i in income_amount:
+            income_layout.addWidget(QLabel(f'{i}: {income_amount}'))
+        main_box.addLayout(income_layout)
+
+    def configure_expenses_layout(self, expenses_layout, main_box):
         expenses_amount = financial.get_expenses()
         expenses_layout.addWidget(QLabel("List fixed expenses here:"))
         for e in expenses_amount:
@@ -243,22 +263,6 @@ class MainWindow(QMainWindow):
         expenses_layout.addWidget(QLabel(f'Total: {financial.total_expenses}'))
         expenses_layout.addWidget(QLabel("List variable expenses here:"))
         main_box.addLayout(expenses_layout)
-
-        income_layout.addWidget(QLabel("Add income here"))
-        income_amount = financial.get_income()
-        for i in income_amount:
-            income_layout.addWidget(QLabel(f'{i}: {income_amount}'))
-        main_box.addLayout(income_layout)
-
-        remaining_money_layout.addWidget(QLabel("List remaining money here"))
-        remaining_money = financial.total_income - financial.total_expenses
-        remaining_money_layout.addWidget(QLabel(f'remaning money: {remaining_money}'))
-        main_box.addLayout(remaining_money_layout)
-
-        widget = QWidget()
-
-        self.setCentralWidget(widget)
-        self.setMinimumSize(500, 500)
 
 
 if __name__ == '__main__':
