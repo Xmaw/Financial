@@ -225,21 +225,22 @@ class FinancialGraphic:
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setup_main_window()
+
+    def setup_main_window(self):
         self.setWindowTitle("Expenses App")
 
+        # Create a number of layouts to section the main window into smaller pieces
         main_box = QHBoxLayout()
         expenses_layout = QVBoxLayout()
         income_layout = QVBoxLayout()
         remaining_money_layout = QVBoxLayout()
 
         expenses_amount = financial.get_expenses()
-
         expenses_layout.addWidget(QLabel("List fixed expenses here:"))
-
         for e in expenses_amount:
             expenses_layout.addWidget(QLabel(f'{e}: {expenses_amount.get(e)}'))
         expenses_layout.addWidget(QLabel(f'Total: {financial.total_expenses}'))
-
         expenses_layout.addWidget(QLabel("List variable expenses here:"))
         main_box.addLayout(expenses_layout)
 
@@ -247,19 +248,16 @@ class MainWindow(QMainWindow):
         income_amount = financial.get_income()
         for i in income_amount:
             income_layout.addWidget(QLabel(f'{i}: {income_amount}'))
-
         main_box.addLayout(income_layout)
 
         remaining_money_layout.addWidget(QLabel("List remaining money here"))
         remaining_money = financial.total_income - financial.total_expenses
         remaining_money_layout.addWidget(QLabel(f'remaning money: {remaining_money}'))
-
         main_box.addLayout(remaining_money_layout)
 
         widget = QWidget()
-        widget.setLayout(main_box)
-        self.setCentralWidget(widget)
 
+        self.setCentralWidget(widget)
         self.setMinimumSize(500, 500)
 
 
@@ -269,7 +267,7 @@ if __name__ == '__main__':
     print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
 
-    some_file = banking_files[5]
+    some_file = banking_files[1]
     path_to_some_file = os.path.join(path, some_file)
     financial = FinancialGraphic(path_to_some_file)
 
