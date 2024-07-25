@@ -87,6 +87,10 @@ class FinancialGraphic:
         # self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
         #                 self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
+    def get_all_categories(self):
+        return {'food': self.food, 'bills': self.bills, 'pleasure': self.pleasure, 'clothes': self.clothes,
+                'home': self.home, 'payback_loans': self.payback_loans, 'car': self.car}
+
     def get_expenses(self):
         return {'food': self.food_expenses, 'bills': self.bills_expenses, 'pleasure': self.pleasure_expenses,
                 'clothes': self.clothes_expenses, 'other': self.other_expenses,
@@ -265,7 +269,7 @@ if __name__ == '__main__':
     print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
 
-    some_file = banking_files[-2]
+    some_file = banking_files[5]
     path_to_some_file = os.path.join(path, some_file)
     financial = FinancialGraphic(path_to_some_file)
 
