@@ -11,6 +11,10 @@ import PyQt5
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QHBoxLayout, QVBoxLayout, QLabel
 from PyQt5.QtGui import QPalette, QColor
 
+class CategoryInfo:
+    category_name = ""
+    category_amount = 0
+    category_company_names = []
 
 class FinancialGraphic:
     path = ""
@@ -101,6 +105,7 @@ class FinancialGraphic:
 
     def populate_categories(self, amount, info):
         category_found = False
+
         for category in self.food:
             if category in info:
                 self.food_expenses += amount
@@ -161,6 +166,14 @@ class FinancialGraphic:
         self.payback_loans_amount = float("{0:.2f}".format(abs(self.payback_loans_amount)))
         self.home_expenses = float("{0:.2f}".format(abs(self.home_expenses)))
 
+    def check_and_update_category(self, category_name, category_amount, amount, category_found, info):
+        for element in category_name:
+            if element in info:
+                category_amount += amount
+                self.total_expenses += amount
+                category_found = True
+        return category_found
+
     def draw_graph(self, components):
         # Pie-chart of two separate charts.
         fig1, plot = plt.subplots()
@@ -196,13 +209,13 @@ class FinancialGraphic:
         for row in range(sheet.nrows):
             try:
                 print(sheet.cell_value(row, 5))
-                info = sheet.cell_value(row, 5).lower()
+                value = sheet.cell_value(row, 5).lower()
                 amount = sheet.cell_value(row, 1)
                 if isinstance(amount, str):
                     continue
                 amount = float(amount)
                 amount = abs(amount)
-                self.populate_categories(amount, info)
+                self.populate_categories(amount, value)
             except ValueError as e:
                 pass
 
@@ -230,7 +243,6 @@ class MainWindow(QMainWindow):
         expenses_layout = QVBoxLayout()
         income_layout = QVBoxLayout()
         remaining_money_layout = QVBoxLayout()
-
 
         self.configure_expenses_layout(expenses_layout, main_box)
         self.configure_income_layout(income_layout, main_box)
@@ -266,7 +278,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == '__main__':
-    path = '/Users/elias/PycharmProjects/banking/2024'
+    path = '/Users/johan/PycharmProjects/banking/2024'
     files = os.listdir(path)
     print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
