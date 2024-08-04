@@ -9,12 +9,14 @@ import xlrd
 import matplotlib.pyplot as plt
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QHBoxLayout, QVBoxLayout, QLabel
-from PyQt5.QtGui import QPalette, QColor
+import re
+
 
 class CategoryInfo:
     category_name = ""
     category_amount = 0
     category_company_names = []
+
 
 class FinancialGraphic:
     path = ""
@@ -79,6 +81,7 @@ class FinancialGraphic:
     income = ['lön', 'lån']
     payback_loans = ['centrala studie', 'centrala stu', 'open banking bg 5196-5770 resurs ba', 'resurs bank']
     car = ['st1 vimmerby']
+    expenses = {}
 
     def __init__(self, path):
         # To open Workbook
@@ -102,6 +105,12 @@ class FinancialGraphic:
 
     def get_income(self):
         return {'income': self.income_amount}
+
+    def group_expenses(self, amount, info):
+        if info in self.expenses:
+            self.expenses[info] = self.expenses[info] + amount
+        else:
+            self.expenses[info] = amount
 
     def populate_categories(self, amount, info):
         category_found = False
@@ -231,8 +240,27 @@ class FinancialGraphic:
                 except ValueError:
                     print('Unable to convert "{0}" to a float.'.format(amount))
                 else:
+
+                    # Quick/ugly fix to omit transactions. Assumed to be transfers between my own accounts.
+                    if 'överföring' in info:
+                        continue
+                    info = self.clean_up_info_text(info)
                     amount = abs(amount)
-                    self.populate_categories(amount, info)
+                    # self.populate_categories(amount, info)
+                    self.group_expenses(amount, info)
+
+    def get_all_expenses(self):
+        return self.expenses
+
+    def clean_up_info_text(self, info):
+        cleaned_info = info.replace('Autogiro', '')
+        pattern = r'[0-9]'
+        cleaned_info = re.sub(pattern, '', cleaned_info)
+        cleaned_info = cleaned_info.replace('kortköp', '')
+        cleaned_info = cleaned_info.replace('Avbet', '')
+        cleaned_info = cleaned_info.strip()
+        return cleaned_info
+
 
 
 class MainWindow(QMainWindow):
@@ -268,7 +296,7 @@ class MainWindow(QMainWindow):
         main_box.addLayout(income_layout)
 
     def configure_expenses_layout(self, expenses_layout, main_box):
-        expenses_amount = financial.get_expenses()
+        expenses_amount = financial.get_all_expenses()
         expenses_layout.addWidget(QLabel("List fixed expenses here:"))
         for e in expenses_amount:
             expenses_layout.addWidget(QLabel(f'{e}: {expenses_amount.get(e)}'))
@@ -278,7 +306,8 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == '__main__':
-    path = '/Users/johan/PycharmProjects/banking/2024'
+    #path = '/Users/johan/PycharmProjects/banking/2024'
+    path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
     print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
