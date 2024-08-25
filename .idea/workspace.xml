@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="Removed some prints and comments.">
-      <change beforePath="$PROJECT_DIR$/.idea/Financial_Graphic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Financial_Graphic.iml" afterDir="false" />
+    <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information.">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/plot_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots/plot_expenses.py" afterDir="false" />
@@ -109,14 +108,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.get_history.executor&quot;: &quot;Run&quot;,
-    &quot;Python.plot_expenses.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.get_history.executor": "Run",
+    "Python.plot_expenses.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Users\Elias\PycharmProjects\Financial\plots" />
@@ -129,6 +128,7 @@
   <component name="RunManager" selected="Python.plot_expenses">
     <configuration name="Graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Financial_Graphic" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -150,6 +150,7 @@
     </configuration>
     <configuration name="get_history" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Financial_Graphic" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -171,6 +172,7 @@
     </configuration>
     <configuration name="plot_expenses" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Financial_Graphic" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -192,6 +194,7 @@
     </configuration>
     <configuration name="read_excel" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Financial_Graphic" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -370,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1618328941682</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information.">
+      <option name="closed" value="true" />
+      <created>1722790654735</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722790654735</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -425,15 +436,6 @@
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -444,6 +446,15 @@
         <entry key="User">
           <value>
             <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
           </value>
         </entry>
       </map>
@@ -467,7 +478,9 @@
     <MESSAGE value="Updated some of the categories with additional information." />
     <MESSAGE value="Updated TODO with additional tasks." />
     <MESSAGE value="Removed some prints and comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed some prints and comments." />
+    <MESSAGE value="Extracted some functionality from init to separate methods." />
+    <MESSAGE value="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information." />
+    <option name="LAST_COMMIT_MESSAGE" value="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -479,15 +492,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/plots/plot_expenses.py</url>
-          <line>214</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/plots/plot_expenses.py</url>
-          <line>231</line>
-          <option name="timeStamp" value="9" />
+          <line>301</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">

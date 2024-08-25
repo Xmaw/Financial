@@ -262,7 +262,6 @@ class FinancialGraphic:
         return cleaned_info
 
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -298,15 +297,18 @@ class MainWindow(QMainWindow):
     def configure_expenses_layout(self, expenses_layout, main_box):
         expenses_amount = financial.get_all_expenses()
         expenses_layout.addWidget(QLabel("List fixed expenses here:"))
+        expenses_total = 0
         for e in expenses_amount:
-            expenses_layout.addWidget(QLabel(f'{e}: {expenses_amount.get(e)}'))
-        expenses_layout.addWidget(QLabel(f'Total: {financial.total_expenses}'))
+            amount = expenses_amount.get(e)
+            expenses_layout.addWidget(QLabel(f'{e}: {amount}'))
+            expenses_total += amount
+        expenses_layout.addWidget(QLabel(f'Total: {round(expenses_total, 2)}'))
         expenses_layout.addWidget(QLabel("List variable expenses here:"))
         main_box.addLayout(expenses_layout)
 
 
 if __name__ == '__main__':
-    #path = '/Users/johan/PycharmProjects/banking/2024'
+    # path = '/Users/johan/PycharmProjects/banking/2024'
     path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
     print(files)
