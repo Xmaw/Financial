@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="Fixed so the correct amount of total expenses is displayed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/plot_expenses.py" beforeDir="false" afterPath="$PROJECT_DIR$/plots/plot_expenses.py" afterDir="false" />
     </list>
@@ -381,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722790654735</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fixed so the correct amount of total expenses is displayed.">
+      <option name="closed" value="true" />
+      <created>1724608694632</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1724608694632</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -480,7 +487,8 @@
     <MESSAGE value="Removed some prints and comments." />
     <MESSAGE value="Extracted some functionality from init to separate methods." />
     <MESSAGE value="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information." />
-    <option name="LAST_COMMIT_MESSAGE" value="Collects all expenses into one dict. Groups the expenses based upon the info text. Created a small cleanup of the text to remove redundant information." />
+    <MESSAGE value="Fixed so the correct amount of total expenses is displayed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed so the correct amount of total expenses is displayed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -489,11 +497,6 @@
           <url>file://$PROJECT_DIR$/transaction_history/get_history.py</url>
           <line>10</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/plots/plot_expenses.py</url>
-          <line>301</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

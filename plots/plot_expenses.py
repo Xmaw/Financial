@@ -94,6 +94,8 @@ class FinancialGraphic:
         # self.draw_graph([self.food_expenses, self.bills_expenses, self.pleasure_expenses, self.clothes_expenses,
         #                 self.other_expenses, self.payback_loans_amount, self.home_expenses])
 
+    def reset_amounts(self):
+        self.expenses = {}
     def get_all_categories(self):
         return {'food': self.food, 'bills': self.bills, 'pleasure': self.pleasure, 'clothes': self.clothes,
                 'home': self.home, 'payback_loans': self.payback_loans, 'car': self.car}
@@ -263,39 +265,47 @@ class FinancialGraphic:
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, financial):
         super().__init__()
+        self.financial = financial
         self.setWindowTitle("Expenses App")
-        main_box = QHBoxLayout()
-        expenses_layout = QVBoxLayout()
-        income_layout = QVBoxLayout()
-        remaining_money_layout = QVBoxLayout()
+        self.main_box = QVBoxLayout()
+        self.expenses_layout = QVBoxLayout()
+        self.income_layout = QVBoxLayout()
+        self.remaining_money_layout = QVBoxLayout()
+        self.top_button_layout = QHBoxLayout()
 
-        self.configure_expenses_layout(expenses_layout, main_box)
-        self.configure_income_layout(income_layout, main_box)
-        self.configure_remaning_money_layout(main_box, remaining_money_layout)
+        self.configure_top_button_layout(self.top_button_layout)
+
+        self.update_layouts()
+
+        self.main_box.addLayout(self.top_button_layout)
+        self.main_box.addLayout(self.expenses_layout)
+        self.main_box.addLayout(self.income_layout)
+        self.main_box.addLayout(self.remaining_money_layout)
 
         widget = QWidget()
-        widget.setLayout(main_box)
+        widget.setLayout(self.main_box)
         self.setCentralWidget(widget)
 
         self.setMinimumSize(500, 500)
 
-    def configure_remaning_money_layout(self, main_box, remaining_money_layout):
+    def configure_remaning_money_layout(self, remaining_money_layout):
+        self.clear_layout(remaining_money_layout)
         remaining_money_layout.addWidget(QLabel("List remaining money here"))
-        remaining_money = financial.total_income - financial.total_expenses
+        remaining_money = self.financial.total_income - self.financial.total_expenses
         remaining_money_layout.addWidget(QLabel(f'remaning money: {remaining_money}'))
-        main_box.addLayout(remaining_money_layout)
 
-    def configure_income_layout(self, income_layout, main_box):
+    def configure_income_layout(self, income_layout):
+        self.clear_layout(income_layout)
         income_layout.addWidget(QLabel("Add income here"))
-        income_amount = financial.get_income()
+        income_amount = self.financial.get_income()
         for i in income_amount:
             income_layout.addWidget(QLabel(f'{i}: {income_amount}'))
-        main_box.addLayout(income_layout)
 
-    def configure_expenses_layout(self, expenses_layout, main_box):
-        expenses_amount = financial.get_all_expenses()
+    def configure_expenses_layout(self, expenses_layout):
+        self.clear_layout(expenses_layout)
+        expenses_amount = self.financial.get_all_expenses()
         expenses_layout.addWidget(QLabel("List fixed expenses here:"))
         expenses_total = 0
         for e in expenses_amount:
@@ -304,22 +314,53 @@ class MainWindow(QMainWindow):
             expenses_total += amount
         expenses_layout.addWidget(QLabel(f'Total: {round(expenses_total, 2)}'))
         expenses_layout.addWidget(QLabel("List variable expenses here:"))
-        main_box.addLayout(expenses_layout)
+
+    def configure_top_button_layout(self, top_button_layout):
+        button_previous = QPushButton('<- Previous')
+        button_next = QPushButton('Next ->')
+
+        button_next.clicked.connect(self.button_next)
+        button_previous.clicked.connect(self.button_previous)
+        top_button_layout.addWidget(button_previous)
+        top_button_layout.addWidget(button_next)
+
+    def button_next(self):
+        print(f'next!')
+        path_to_some_file = os.path.join(path, banking_files[file_index + 1])
+        self.financial.reset_amounts()
+        self.financial = FinancialGraphic(path_to_some_file)
+        self.update_layouts()
+
+    def button_previous(self):
+        print('previous')
+
+    def clear_layout(self, layout):
+        if bool(layout.layout().count()):
+            while layout.count():
+                item = layout.takeAt(0)
+                widget = item.widget()
+                widget.deleteLater()
+
+    def update_layouts(self):
+        self.configure_expenses_layout(self.expenses_layout)
+        self.configure_income_layout(self.income_layout)
+        self.configure_remaning_money_layout(self.remaining_money_layout)
+
 
 
 if __name__ == '__main__':
     # path = '/Users/johan/PycharmProjects/banking/2024'
     path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
-    print(files)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
 
-    some_file = banking_files[1]
+    file_index = 0
+    some_file = banking_files[file_index]
     path_to_some_file = os.path.join(path, some_file)
-    financial = FinancialGraphic(path_to_some_file)
+    f = FinancialGraphic(path_to_some_file)
 
     app = QApplication(sys.argv)
 
-    window = MainWindow()
+    window = MainWindow(f)
     window.show()
     app.exec()
