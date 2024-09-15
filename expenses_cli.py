@@ -32,12 +32,21 @@ if __name__ == '__main__':
     path = '/Users/elias/PycharmProjects/banking/2024'
     files = os.listdir(path)
     banking_files = [x for x in os.listdir(path) if ".xlsx" in x or ".csv" in x]
-    file_index = 0
-    some_file = banking_files[file_index]
-    path_to_some_file = os.path.join(path, some_file)
-    transactions = get_transactions(path_to_some_file)
-    grouped_transactions = group_transactions(transactions)
-    grouped_transactions = sorted(grouped_transactions.items(), key=lambda x: x[1])
-    for transaction in grouped_transactions:
-        print(transaction)
+    print("Welcome to the transactions CLI!")
+    print("Here are the available transactions sorted by month:")
+    while(True):
+        banking_files_list = (list((i, banking_files[i]) for i in range(len(banking_files))))
+        print(banking_files_list)
+
+        index = input("Select month by index: ")
+        some_file = banking_files[int(index)]
+        path_to_some_file = os.path.join(path, some_file)
+        transactions = get_transactions(path_to_some_file)
+        grouped_transactions = group_transactions(transactions)
+        grouped_transactions = sorted(grouped_transactions.items(), key=lambda x: x[1])
+        for transaction in grouped_transactions:
+            print(transaction)
+
+
+
 

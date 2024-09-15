@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457c3eae-4bad-4ace-821d-94aecec79577" name="Default Changelist" comment="Fixed so the correct amount of total expenses is displayed.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/expenses_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/expenses_cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
