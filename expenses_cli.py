@@ -1,6 +1,6 @@
 import os
 
-def get_expenses(path):
+def get_transactions(path):
     expenses = []
     with open(path, 'r', encoding='utf-8') as file:
         for row in file:
@@ -23,5 +23,5 @@ if __name__ == '__main__':
     file_index = 0
     some_file = banking_files[file_index]
     path_to_some_file = os.path.join(path, some_file)
-    print(get_expenses(path_to_some_file))
+    print(get_transactions(path_to_some_file))
 
